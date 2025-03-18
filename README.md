@@ -178,4 +178,4 @@ Microsoft Fabric for data orchestration.
 
 Azure AI Search for retrieval.
 
-Azure OpenAI for natural language generation.
+Azure OpenAI for natural language generation."# Genomic_Analysis" 
