@@ -16,17 +16,11 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 ### Project Flow
 
 
-	Data Ingestion: Load genomic, proteomic, and metabolomic data into OneLake.
-
-	Data Preprocessing: Clean, normalize, and transform data using Synapse Data Engineering.
-
-	Model Training: Train AI models (e.g., Random Forest) to predict disease recovery.
-
-	Molecular Phenotyping: Identify biomarkers for disease recovery.
-
-	RAG Chat Interface: Allow users to query the system and retrieve insights.
-
-	Visualization: Create interactive dashboards using Power BI.
+<p align="center">
+  <img src="output/x.jpg" alt="High-Level Architecture Diagram" width="600">
+  <br>
+  <em>Figure 1: High-level architecture of the bioscience platform</em>
+</p>
 
 ### Project Structure
 
