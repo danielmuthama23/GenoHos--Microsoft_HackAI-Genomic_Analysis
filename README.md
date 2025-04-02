@@ -17,7 +17,7 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 
 
 <p align="center">
-  <img src="output/x.jpg" alt="High-Level Architecture Diagram" width="600">
+  <img src="output/x.jpg" alt="High-Level Architecture Diagram" width="1000">
   <br>
   <em>Figure 1: High-level architecture of the bioscience platform</em>
 </p>
