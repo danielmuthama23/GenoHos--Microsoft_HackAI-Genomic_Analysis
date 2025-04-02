@@ -1,4 +1,14 @@
 ### AI-Powered Genomic Analysis with Molecular Phenotyping and RAG Chat Interface
+  
+  With the rapid advancement of multi-omics technologies, healthcare institutions now generate vast amounts of genomic, proteomic, and metabolomic data. While these datasets hold the key to personalized medicine, they typically reside in disconnected systems - from sequencing machines to EHRs to research databases. Traditionally, integrating this data required teams of bioinformaticians to build complex analysis pipelines, slowing down critical treatment decisions.
+
+#### Microsoft Fabric revolutionizes this process by providing:
+
+Unified Data Lakehouse for harmonizing sequencing data, clinical records, and research repositories
+
+Low-Code Transformations to clean and standardize omics data without extensive coding
+
+Built-In ML Capabilities for running predictive models directly on Fabric notebooks
 
 #### Overview
 This project is an AI-powered platform for analyzing genomic data with proteomic, and metabolomic properties to predict disease recovery and provide personalized treatment recommendations. It leverages Microsoft Fabric for data orchestration, Azure AI Search for retrieval, and Azure OpenAI for natural language generation. It will also summarize findings from genomic data analysis, focusing on detecting disease associations through mutation patterns in breast cancer samples.
