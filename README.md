@@ -123,6 +123,31 @@ The above React application collects breast cancer patient data including locati
 
 This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/validates it (silver), and enriches with analytical features (gold) in Fabric's Lakehouse. The process includes data type conversion, email validation, weight normalization, and risk categorization. PowerBI connects via Direct Lake for real-time visualization of age groups, cancer stages, and geographic distributions. For long-term storage, gold data exports to AWS S3 in Parquet format. The pipeline enables specialists to identify patterns and generate personalized prevention advice based on historical correlations between patient demographics and cancer progression. Microsoft Fabric streamlines this workflow with integrated Spark processing, Delta Lake storage, and PowerBI analytics in one platform.
 
+<p align="center">
+  <img src="output/x6.png" alt="Diagram 5">
+  <br>
+  <em>Figure 6: MS Fabric - Breast_Cancer_LakeHouse</em>
+</p>
+
+<p align="center">
+  <img src="output/x7.png" alt="Diagram 5">
+  <br>
+  <em>Figure 7: MS Fabric - Breast_Cancer_LakeHouse</em>
+</p>
+
+<p align="center">
+  <img src="output/x8.png" alt="Diagram 5">
+  <br>
+  <em>Figure 8: MS Fabric - Breast_Cancer_LakeHouse</em>
+</p>
+
+<p align="center">
+  <img src="output/x9.png" alt="Diagram 5">
+  <br>
+  <em>Figure 9: MS Fabric - Breast_Cancer_LakeHouse</em>
+</p>
+
+
 # Breast Cancer Patient Analytics Report  
 *Generated from Lakehouse Pipeline – {{date}}*  
 
