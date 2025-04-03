@@ -1,19 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Table, 
   Button, 
   Modal, 
-  Form,   // <-- This was missing
-  Pagination 
+  Form,
+  Pagination,
+  Spinner,
+  Alert
 } from 'react-bootstrap';
 import { generateCSV } from '../utils/csvGenerator';
+import { patientService } from '../services/patient.service';
 
-const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
+const DataTable = ({ authToken }) => {
+  const [patients, setPatients] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [patientsPerPage] = useState(5);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [currentPatient, setCurrentPatient] = useState(null);
+
+  // Load patients from backend
+  useEffect(() => {
+    const fetchPatients = async () => {
+      try {
+        const response = await patientService.getPatients();
+        setPatients(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to load patient records');
+        setLoading(false);
+        console.error('Error loading patients:', err);
+      }
+    };
+    
+    fetchPatients();
+  }, []);
 
   // Pagination logic
   const indexOfLastPatient = currentPage * patientsPerPage;
@@ -26,9 +49,18 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
     setShowEditModal(true);
   };
 
-  const handleSave = () => {
-    onUpdatePatient(currentPatient);
-    setShowEditModal(false);
+  const handleSave = async () => {
+    try {
+      await patientService.updatePatient(currentPatient._id, currentPatient, authToken);
+      const updatedPatients = patients.map(p => 
+        p._id === currentPatient._id ? currentPatient : p
+      );
+      setPatients(updatedPatients);
+      setShowEditModal(false);
+    } catch (err) {
+      setError('Failed to update patient record');
+      console.error('Error updating patient:', err);
+    }
   };
 
   const handleDelete = (patient) => {
@@ -36,9 +68,16 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
     setShowDeleteModal(true);
   };
 
-  const confirmDelete = () => {
-    onDeletePatient(currentPatient);
-    setShowDeleteModal(false);
+  const confirmDelete = async () => {
+    try {
+      await patientService.deletePatient(currentPatient._id, authToken);
+      const updatedPatients = patients.filter(p => p._id !== currentPatient._id);
+      setPatients(updatedPatients);
+      setShowDeleteModal(false);
+    } catch (err) {
+      setError('Failed to delete patient record');
+      console.error('Error deleting patient:', err);
+    }
   };
 
   const downloadCSV = () => {
@@ -52,6 +91,25 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
     link.click();
     document.body.removeChild(link);
   };
+
+  if (loading) {
+    return (
+      <div className="text-center mt-5">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+        <p>Loading patient records...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <Alert variant="danger" className="mt-3">
+        {error}
+      </Alert>
+    );
+  }
 
   return (
     <div className="table-container">
@@ -72,8 +130,8 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
               </tr>
             </thead>
             <tbody>
-              {currentPatients.map((patient, index) => (
-                <tr key={index}>
+              {currentPatients.map((patient) => (
+                <tr key={patient._id}>
                   <td>{patient.name}</td>
                   <td>{patient.email}</td>
                   <td>{patient.age}</td>
@@ -84,7 +142,7 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
                       {patient.stage}
                     </span>
                   </td>
-                  <td>{patient.dateDiagnosed}</td>
+                  <td>{new Date(patient.createdAt).toLocaleDateString()}</td>
                   <td>
                     <Button variant="outline-primary" size="sm" onClick={() => handleEdit(patient)}>
                       Edit
@@ -142,6 +200,14 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
               onChange={(e) => setCurrentPatient({...currentPatient, name: e.target.value})}
             />
           </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              value={currentPatient?.email || ''}
+              onChange={(e) => setCurrentPatient({...currentPatient, email: e.target.value})}
+            />
+          </Form.Group>
           {/* Add other fields similarly */}
         </Modal.Body>
         <Modal.Footer>
@@ -160,14 +226,14 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
           <Modal.Title>Confirm Delete</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Are you sure you want to delete {currentPatient?.name}'s record?
+          Are you sure you want to delete {currentPatient?.name}'s record? This action cannot be undone.
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
             Cancel
           </Button>
           <Button variant="danger" onClick={confirmDelete}>
-            Delete
+            Delete Permanently
           </Button>
         </Modal.Footer>
       </Modal>
@@ -177,11 +243,11 @@ const DataTable = ({ patients, onDeletePatient, onUpdatePatient }) => {
 
 const getStageColor = (stage) => {
   switch(stage) {
-    case '0': return 'info';
-    case 'I': return 'primary';
-    case 'II': return 'warning';
-    case 'III': return 'danger';
-    case 'IV': return 'dark';
+    case 'Stage 0': return 'info';
+    case 'Stage I': return 'primary';
+    case 'Stage II': return 'warning';
+    case 'Stage III': return 'danger';
+    case 'Stage IV': return 'dark';
     default: return 'secondary';
   }
 };
