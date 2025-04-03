@@ -58,14 +58,14 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 
 ### Breast Cancer Insight Analysis
 <p align="center">
-  <img src="output/x1.jpg" alt="High-Level Architecture Diagram" width="1000">
+  <img src="output/x1.png" alt="Diagram 1" width="1000">
   <br>
-  <em>Figure 1: High-level architecture of the bioscience platform</em>
+  <em>Figure 1: Breast Cancer Recorder</em>
 </p>
 <p align="center">
-  <img src="output/x2.jpg" alt="High-Level Architecture Diagram">
+  <img src="output/x2.png" alt="Diagram 2">
   <br>
-  <em>Figure 1: High-level architecture of the bioscience platform</em>
+  <em>Figure 1: Breast Cancer Recorder with Records</em>
 </p>
 #### File Structure
 
