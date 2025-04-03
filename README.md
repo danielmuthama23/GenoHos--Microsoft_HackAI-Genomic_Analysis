@@ -57,7 +57,16 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 
 
 ### Breast Cancer Insight Analysis
-
+<p align="center">
+  <img src="output/x1.jpg" alt="High-Level Architecture Diagram" width="1000">
+  <br>
+  <em>Figure 1: High-level architecture of the bioscience platform</em>
+</p>
+<p align="center">
+  <img src="output/x2.jpg" alt="High-Level Architecture Diagram">
+  <br>
+  <em>Figure 1: High-level architecture of the bioscience platform</em>
+</p>
 #### File Structure
 
 
@@ -120,7 +129,7 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 **Insight:** Early-stage (1-2) diagnoses are most prevalent in `{{top_location}}`.  
 
 ## 3. Temporal Trends  
-![Diagnosis Over Time](path/to/trend_chart.png)  
+![Diagnosis Over Time]  
 - **Peak Diagnoses:** `{{year_with_max_cases}}`  
 - **Recent Change:** `{{last_3_years_trend}}` (↑/↓)  
 
