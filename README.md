@@ -15,7 +15,6 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 
 ### Project Flow
 
-
 <p align="center">
   <img src="output/x.jpg" alt="High-Level Architecture Diagram" width="1000">
   <br>
@@ -54,6 +53,94 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 	└── model_deployment/                  # Notebook and experiment for model deployment
 	    ├── (Notebook)
 	    └── (Experiment)
+
+
+
+### Breast Cancer Insight Analysis
+
+#### File Structure
+
+
+ 	breast-cancer-recorder/
+	├── build/
+	├── static/
+	├── asset-manifest.json
+	├── index.html
+	├── manifest.json
+	├── robots.txt
+	├── node_modules/
+	├── public/
+	│   ├── index.html
+	│   ├── manifest.json
+	│   ├── robots.txt
+	│   └── reports/                      # New directory for research reports
+	│       └── breast_cancer_report.md   # Added markdown report
+	├── src/
+	│   ├── components/
+	│   │   ├── DataTable.js
+	│   │   └── PatientForm.js
+	│   ├── utils/
+	│   ├── App.js
+	│   ├── index.js
+	│   ├── reportWebVitals.js
+	│   ├── styles.css
+	│   └── report-components/            # New directory for report components
+	│       ├── ReportViewer.js           # Component to display the markdown
+	│       └── ReportGenerator.js        # Component to generate dynamic reports
+	├── .env
+	├── .gitignore
+	├── package.json
+	└── vercel.json
+
+The above React application collects breast cancer patient data including location, age, cancer stage, weight, and email. It features form validation to ensure accurate data entry, with age restricted to 18-120 years, weight validated as positive numbers, and proper email formatting. . Collected data can be downloaded as CSV for analysis. The app includes error handling and success notifications. The clean interface prioritizes usability while maintaining data integrity, making it suitable for medical professionals to record and manage patient information efficiently.
+
+
+#### Data Wrangling and PowerBI Analysis
+
+This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/validates it (silver), and enriches with analytical features (gold) in Fabric's Lakehouse. The process includes data type conversion, email validation, weight normalization, and risk categorization. PowerBI connects via Direct Lake for real-time visualization of age groups, cancer stages, and geographic distributions. For long-term storage, gold data exports to AWS S3 in Parquet format. The pipeline enables specialists to identify patterns and generate personalized prevention advice based on historical correlations between patient demographics and cancer progression. Microsoft Fabric streamlines this workflow with integrated Spark processing, Delta Lake storage, and PowerBI analytics in one platform.
+
+# Breast Cancer Patient Analytics Report  
+*Generated from Lakehouse Pipeline – {{date}}*  
+
+## 1. Key Demographics  
+- **Total Patients:** `{{gold_df.count()}}`  
+- **Average Age:** `{{stage_analysis_df.select(avg("avg_age")).first()[0]}}` years  
+- **Weight Distribution:**  
+  - Mean: `{{stage_analysis_df.select(avg("avg_weight")).first()[0]}}` kg  
+  - Std Dev: `{{stage_analysis_df.select(stddev("avg_weight")).first()[0]}}` kg  
+
+## 2. Stage Distribution  
+
+| Stage | Patients (%) | Avg Age | Top Location |  
+|-------|-------------|---------|--------------|  
+| 1     | `{{count_stage1/total*100}}`% | `{{age_stage1}}` | `{{top_loc_stage1}}` |  
+| 2     | `{{count_stage2/total*100}}`% | `{{age_stage2}}` | `{{top_loc_stage2}}` |  
+| ...   | ...         | ...     | ...          |  
+
+**Insight:** Early-stage (1-2) diagnoses are most prevalent in `{{top_location}}`.  
+
+## 3. Temporal Trends  
+![Diagnosis Over Time](path/to/trend_chart.png)  
+- **Peak Diagnoses:** `{{year_with_max_cases}}`  
+- **Recent Change:** `{{last_3_years_trend}}` (↑/↓)  
+
+## 4. AI-Generated Prevention Insights  
+**For Stage {{X}} Patients (Age {{Y}}):**  
+> "Patients at this stage should prioritize {{GPT-4_advice}}..."
+
+## 5. Data Quality Notes  
+- **Complete Records:** `{{valid_records/total*100}}`%  
+- **Missing Data:**  
+  - `{{null_cancer_stage}}` missing stage labels  
+  - `{{null_weight}}` missing weight entries  
+
+## Methodology  
+- **Data Source:** `breast_cancer_patients.csv`  
+- **Pipeline:**  
+  - **Bronze:** Raw ingestion  
+  - **Silver:** PII pseudonymization + cleaning  
+  - **Gold:** Analytics + AI enrichment (GPT-4)  
+- **Tools:** Microsoft Fabric, Power BI, PySpark  
 
 
 ## Key Components
@@ -119,7 +206,7 @@ Contributions are welcome! Please follow these steps:
 **Repository:** [https://github.com/danielmuthama23/Genomic_Analysis.git](#)  
 
 
-# SUMMARY
+# Summary
 
 ## 1. Genomic Analysis Report: Mutation-Disease Association Detection
 This report summarizes findings from genomic data analysis, focusing on detecting disease associations through mutation patterns in breast cancer samples.  
