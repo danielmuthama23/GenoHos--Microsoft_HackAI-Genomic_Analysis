@@ -60,13 +60,16 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 <p align="center">
   <img src="output/x2.png" alt="Diagram 1" width="1000">
   <br>
-  <em>Figure 1: Breast Cancer Recorder</em>
+  <em>Figure 2: Breast Cancer Recorder</em>
 </p>
 <p align="center">
   <img src="output/x3.png" alt="Diagram 2">
   <br>
-  <em>Figure 1: Breast Cancer Recorder with Records</em>
+  <em>Figure 3: Breast Cancer Recorder with Records</em>
 </p>
+
+##### Downloaded File: "breast_cancer_patients.csv"
+
 #### File Structure
 
 
