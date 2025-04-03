@@ -54,6 +54,17 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
 	    ├── (Notebook)
 	    └── (Experiment)
 
+<p align="center">
+  <img src="output/x4.png" alt="Diagram 4">
+  <br>
+  <em>Figure 4: MS Fabric - GenomicAnalysisWorkspace</em>
+</p>
+
+<p align="center">
+  <img src="output/x5.png" alt="Diagram 5">
+  <br>
+  <em>Figure 5: MS Fabric - GenomicAnalysisWorkspace2</em>
+</p>
 
 
 ### Breast Cancer Insight Analysis
@@ -62,6 +73,7 @@ This project is an AI-powered platform for analyzing genomic data with proteomic
   <br>
   <em>Figure 2: Breast Cancer Recorder</em>
 </p>
+
 <p align="center">
   <img src="output/x3.png" alt="Diagram 2">
   <br>
