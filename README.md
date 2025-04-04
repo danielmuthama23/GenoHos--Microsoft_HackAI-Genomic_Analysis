@@ -251,10 +251,6 @@ Install the required Python libraries:
 
 Create a Fabric workspace and set up OneLake.
 
-#### Azure AI Search:
-
-Create an index for storing research papers and genomic data.
-
 #### Azure OpenAI:
 
 Set up an OpenAI resource and deploy a GPT-4 model.
@@ -298,7 +294,7 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 ## 2. Key Findings  
 
 ### 2.1 Mutation-Disease Associations  
-![Mutation Counts](mutation_disease_counts.png)  
+![Mutation Counts]
 
 **Top Pathogenic Mutations:**  
 | Gene    | Mutation Count | Disease-Associated | Percentage |  
@@ -314,7 +310,7 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 ---
 
 ### 2.2 Protein Interaction Network  
-![Protein Network](protein_network.png)  
+![Protein Network]
 
 **Critical Hubs (High Connectivity):**  
 1. **TP53** (4 interactions)  
@@ -328,7 +324,7 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 ---
 
 ### 2.3 Metabolic Pathway Dysregulation  
-![Metabolic Pathways](metabolic_pathways.png)  
+![Metabolic Pathways]  
 
 **Most Dysregulated Pathways:**  
 1. **Glycolysis** (↑ Glucose-6-P, Fructose-1,6-BP)  
