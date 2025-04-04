@@ -2,7 +2,7 @@
 
 With the rapid advancement of multi-omics technologies, healthcare institutions now generate vast amounts of genomic, proteomic, and metabolomic data. While these datasets hold the key to personalized medicine, they typically reside in disconnected systems - from sequencing machines to EHRs to research databases. Traditionally, integrating this data required teams of bioinformaticians to build complex analysis pipelines, slowing down critical treatment decisions.
 
-By leveraging mutation Data lad led to discovery of novel disease variants. For example breast cancer patient management system serves as a powerful platform for physicians to discover and analyze novel disease variants by integrating clinical and genomic data. By systematically recording patient demographics, treatment outcomes, and mutation profiles, the system enables:
+By leveraging mutation Data has led to discovery of novel disease variants. For example breast cancer patient management system serves as a powerful platform for physicians to discover and analyze novel disease variants by integrating clinical and genomic data. By systematically recording patient demographics, treatment outcomes, and mutation profiles, the system enables:
 
 **Pattern Recognition** - Identifies recurring mutation clusters across specific age groups, ethnicities, and geographic locations, revealing potential founder mutations or environmental risk factors.
 
