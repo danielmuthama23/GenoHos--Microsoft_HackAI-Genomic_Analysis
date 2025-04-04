@@ -4,25 +4,25 @@ With the rapid advancement of multi-omics technologies, healthcare institutions 
 
 By leveraging mutation Data lad led to discovery of novel disease variants. For example breast cancer patient management system serves as a powerful platform for physicians to discover and analyze novel disease variants by integrating clinical and genomic data. By systematically recording patient demographics, treatment outcomes, and mutation profiles, the system enables:
 
-Pattern Recognition - Identifies recurring mutation clusters across specific age groups, ethnicities, and geographic locations, revealing potential founder mutations or environmental risk factors.
+**Pattern Recognition** - Identifies recurring mutation clusters across specific age groups, ethnicities, and geographic locations, revealing potential founder mutations or environmental risk factors.
 
-Variant Alert System - Automatically flags novel variants and compares them against global databases (COSMIC, ClinVar), highlighting mutations with predicted clinical significance.
+**Variant Alert System** - Automatically flags novel variants and compares them against global databases (COSMIC, ClinVar), highlighting mutations with predicted clinical significance.
 
-Treatment Response Analysis - Correlates specific mutations with drug efficacy, helping physicians identify biomarkers for treatment resistance or sensitivity.
+**Treatment Response Analysis** - Correlates specific mutations with drug efficacy, helping physicians identify biomarkers for treatment resistance or sensitivity.
 
-Collaborative Research - Facilitates secure data sharing across institutions, creating a crowdsourced knowledge base for rare variants and atypical presentations.
+**Collaborative Research** - Facilitates secure data sharing across institutions, creating a crowdsourced knowledge base for rare variants and atypical presentations.
 
-Predictive Modeling - Uses accumulated data to forecast disease progression patterns and suggest personalized therapeutic approaches based on mutation profiles.
+**Predictive Modeling** - Uses accumulated data to forecast disease progression patterns and suggest personalized therapeutic approaches based on mutation profiles.
 
-The system transforms routine clinical documentation into a dynamic discovery tool, where each new patient record contributes to our understanding of breast cancer heterogeneity. Physicians gain real-time insights into how specific mutations influence:
+The system transforms routine clinical documentation into a dynamic discovery tool, where each new patient record contributes to our understanding of breast cancer heterogeneity. Physicians gain real-time insights into how specific mutations influence: -
 
-			Metastatic patterns
+	1. Metastatic patterns
 
-			Disease progression timelines
+	2. Disease progression timelines
 
-			Survival outcomes
+	3. Survival outcomes
 
-			Therapeutic vulnerabilities
+	4. Therapeutic vulnerabilities
 
 By making these correlations visible at the point of care, the platform accelerates the identification of novel disease variants and enables more precise, personalized treatment strategies - bridging the gap between genomic research and clinical practice.
 
