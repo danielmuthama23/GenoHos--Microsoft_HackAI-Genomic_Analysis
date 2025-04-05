@@ -34,8 +34,20 @@ Low-Code Transformations to clean and standardize omics data without extensive c
 
 Built-In ML Capabilities for running predictive models directly on Fabric notebooks
 
-#### Overview
-This project is an AI-powered platform for analyzing genomic data with proteomic, and metabolomic properties to predict disease recovery and provide personalized treatment recommendations. It leverages Microsoft Fabric for data orchestration, Azure AI Search for retrieval, and Azure OpenAI for natural language generation. It will also summarize findings from genomic data analysis, focusing on detecting disease associations through mutation patterns in breast cancer samples.
+### Overview
+This AI-powered oncology platform analyzes integrated genomic, proteomic, and metabolomic data to predict disease outcomes and generate personalized treatment recommendations. The system utilizes Microsoft Fabric for multimodal data orchestration, Azure AI Search for biomedical evidence retrieval, and Azure OpenAI for clinical insights generation. Specifically designed for breast cancer research, it identifies pathogenic mutation patterns, detects clinically significant genomic variants, and synthesizes comprehensive reports highlighting therapeutic implications derived from multi-omics analysis."
+
+#### Key improvements:
+
+Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more clinically accurate)
+
+**Oncology Focus:** Added "specifically designed for breast cancer research"
+
+**Technical Clarity:** Specified "pathogenic mutation patterns" and "clinically significant genomic variants"
+
+**Flow:** Improved logical progression from data types → analysis → clinical outputs
+
+**Professional Tone:** Used terms like "therapeutic implications" and "multi-omics analysis
 
 ### Project Flow
 
