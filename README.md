@@ -296,14 +296,17 @@ Contributions are welcome! Please follow these steps:
 # Summary
 
 ## 1. Genomic Analysis Report: Mutation-Disease Association Detection
+
 This report summarizes findings from genomic data analysis, focusing on detecting disease associations through mutation patterns in breast cancer samples.  
 
 **Analysis Methods:**  
+
 - Mutation frequency analysis of key cancer genes  
 - Protein-protein interaction networks to identify functional clusters  
 - Metabolic pathway mapping to detect dysregulated processes  
 
 **Key Datasets:**  
+
 - `PDC_biospecimen_manifest_03272025_214257.csv`  
 - Embedded mock genomic data for test and validation  
 
@@ -322,26 +325,31 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 | BRCA1   | 4             | 4                  | 100%       |  
 
 **Insights:**  
+
 - **TP53 mutations** were ubiquitous (100% disease-linked), indicating its role as a primary driver.  
 - **PIK3CA** and **BRCA1/2** mutations showed strong disease associations.  
 
 ---
 
 ### 2.2 Protein Interaction Network  
+
 ![Protein Network]
 
 **Critical Hubs (High Connectivity):**  
+
 1. **TP53** (4 interactions)  
 2. **BRCA1** (3 interactions)  
 3. **PIK3CA** (3 interactions)  
 
 **Key Observations:**  
+
 - Red nodes (PDC-identified proteins) formed central hubs.  
 - Green edges (activation) dominated oncogenic pathways (e.g., PIK3CA→AKT1).  
 
 ---
 
 ### 2.3 Metabolic Pathway Dysregulation  
+
 ![Metabolic Pathways]  
 
 **Most Dysregulated Pathways:**  
@@ -356,32 +364,39 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ## 3. Disease Detection Methodology  
 
-### 3.1 Mutation-Based Detection  
+### 3.1 Mutation-Based Detection 
+
 - **Thresholds:** Genes with >70% disease-associated mutations flagged as high-risk.  
 - **Validation:** Cross-referenced with COSMIC database.  
 
 ### 3.2 Network Analysis  
+
 - Prioritized **hub genes** (e.g., TP53) as biomarkers.  
 - **Inhibition edges** (red) highlighted drug targets (e.g., PTEN→AKT1).  
 
 ### 3.3 Metabolic Insights  
+
 - Glycolysis/TCA cycle disruptions correlated with TP53/PIK3CA mutations.  
 - High Acetyl-CoA suggests vulnerability to metabolic inhibitors.  
 
 ---
 
 ## 4. Conclusions & Recommendations  
-  From the analysis we conclude:-
+
+From the analysis we can conclude:-
 
 **Diagnostic Markers:**  
+
 - **TP53 mutations** as universal biomarkers.  
 - **PIK3CA activation** signals aggressive subtypes.  
 
 **Therapeutic Targets:**  
+
 - Target **PIK3CA-AKT1 interactions**.  
 - Explore **metabolic inhibitors** for Acetyl-CoA-overproducing tumors.  
 
 **Future Works:**  
+
 - Validate with clinical outcomes data.  
 - Expand analysis to RNA-seq.  
 
@@ -400,25 +415,28 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 **Prepared by:** Daniel Muthama 
 **Date:** April 2, 2025  
+**Contact:** (mailto:danielmuthama23@gmail.com)  
+
 
 ---
 
 ### How to Use This Report  
+
 - **Clinicians:** Focus on TP53/PIK3CA status for patient stratification.  
 - **Researchers:** Explore metabolic pathways for novel drug combinations.  
 - **Data Teams:** Replicate pipeline using `DataEngineering.tex`.  
 
-**Contact:** (mailto:danielmuthama23@gmail.com)  
-
 ### License
+
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ### Contact
+
 For questions or feedback, please contact:
 
 #### Acknowledgments
+
 Microsoft Fabric for data orchestration.
 
-Azure AI Search for retrieval.
-
-Azure OpenAI for natural language generation.
+	Azure AI Search for retrieval.
+	Azure OpenAI for natural language generation.
