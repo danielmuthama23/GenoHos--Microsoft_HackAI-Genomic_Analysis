@@ -35,6 +35,7 @@ Low-Code Transformations to clean and standardize omics data without extensive c
 Built-In ML Capabilities for running predictive models directly on Fabric notebooks
 
 ### Overview
+
 This AI-powered oncology platform analyzes integrated genomic, proteomic, and metabolomic data to predict disease outcomes and generate personalized treatment recommendations. The system utilizes Microsoft Fabric for multimodal data orchestration, Azure AI Search for biomedical evidence retrieval, and Azure OpenAI for clinical insights generation. Specifically designed for breast cancer research, it identifies pathogenic mutation patterns, detects clinically significant genomic variants, and synthesizes comprehensive reports highlighting therapeutic implications derived from multi-omics analysis."
 
 #### Key improvements:
@@ -191,12 +192,15 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 
 
 ### Breast Cancer Patient Analytics Report  
+
 *Generated from Lakehouse Pipeline – {{date}}*  
 
 #### 1. Key Demographics  
+
 - **Total Patients:** `{{gold_df.count()}}`  
 - **Average Age:** `{{stage_analysis_df.select(avg("avg_age")).first()[0]}}` years  
 - **Weight Distribution:**  
+
   - Mean: `{{stage_analysis_df.select(avg("avg_weight")).first()[0]}}` kg  
   - Std Dev: `{{stage_analysis_df.select(stddev("avg_weight")).first()[0]}}` kg  
 
@@ -211,21 +215,25 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 **Insight:** Early-stage (1-2) diagnoses are most prevalent in `{{top_location}}`.  
 
 #### 3. Temporal Trends  
+
 ![Diagnosis Over Time]  
 - **Peak Diagnoses:** `{{year_with_max_cases}}`  
 - **Recent Change:** `{{last_3_years_trend}}` (↑/↓)  
 
 #### 4. AI-Generated Prevention Insights  
+
 **For Stage {{X}} Patients (Age {{Y}}):**  
 > "Patients at this stage should prioritize {{GPT-4_advice}}..."
 
 #### 5. Data Quality Notes  
+
 - **Complete Records:** `{{valid_records/total*100}}`%  
 - **Missing Data:**  
   - `{{null_cancer_stage}}` missing stage labels  
   - `{{null_weight}}` missing weight entries  
 
 ### Methodology  
+
 - **Data Source:** `breast_cancer_patients.csv`  
 - **Pipeline:**  
   - **Bronze:** Raw ingestion  
@@ -293,9 +301,9 @@ Contributions are welcome! Please follow these steps:
 **Repository:** [https://github.com/danielmuthama23/Genomic_Analysis.git](#)  
 
 
-# Summary
+### Summary
 
-## 1. Genomic Analysis Report: Mutation-Disease Association Detection
+#### 1. Genomic Analysis Report: Mutation-Disease Association Detection
 
 This report summarizes findings from genomic data analysis, focusing on detecting disease associations through mutation patterns in breast cancer samples.  
 
@@ -312,12 +320,14 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ---
 
-## 2. Key Findings  
+### 2. Key Findings  
 
-### 2.1 Mutation-Disease Associations  
+#### 2.1 Mutation-Disease Associations 
+
 ![Mutation Counts]
 
 **Top Pathogenic Mutations:**  
+
 | Gene    | Mutation Count | Disease-Associated | Percentage |  
 |---------|---------------|--------------------|------------|  
 | TP53    | 8             | 8                  | 100%       |  
@@ -331,7 +341,7 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ---
 
-### 2.2 Protein Interaction Network  
+#### 2.2 Protein Interaction Network  
 
 ![Protein Network]
 
@@ -348,40 +358,42 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ---
 
-### 2.3 Metabolic Pathway Dysregulation  
+#### 2.3 Metabolic Pathway Dysregulation  
 
 ![Metabolic Pathways]  
 
 **Most Dysregulated Pathways:**  
+
 1. **Glycolysis** (↑ Glucose-6-P, Fructose-1,6-BP)  
 2. **TCA Cycle** (↓ Succinyl-CoA, ↑ Acetyl-CoA)  
 3. **Fatty Acid Synthesis** (↑ Malonyl-CoA)  
 
 **Top Dysregulated Metabolite:**  
+
 - **Acetyl-CoA** (2.1-fold change, linked to PTEN mutations).  
 
 ---
 
-## 3. Disease Detection Methodology  
+### 3. Disease Detection Methodology  
 
-### 3.1 Mutation-Based Detection 
+#### 3.1 Mutation-Based Detection 
 
 - **Thresholds:** Genes with >70% disease-associated mutations flagged as high-risk.  
 - **Validation:** Cross-referenced with COSMIC database.  
 
-### 3.2 Network Analysis  
+#### 3.2 Network Analysis  
 
 - Prioritized **hub genes** (e.g., TP53) as biomarkers.  
 - **Inhibition edges** (red) highlighted drug targets (e.g., PTEN→AKT1).  
 
-### 3.3 Metabolic Insights  
+#### 3.3 Metabolic Insights  
 
 - Glycolysis/TCA cycle disruptions correlated with TP53/PIK3CA mutations.  
 - High Acetyl-CoA suggests vulnerability to metabolic inhibitors.  
 
 ---
 
-## 4. Conclusions & Recommendations  
+### 4. Conclusions & Recommendations  
 
 From the analysis we can conclude:-
 
@@ -402,7 +414,7 @@ From the analysis we can conclude:-
 
 ---
 
-## 5. Files Generated  
+### 5. Files Generated  
 
 | File                          | Description                                  |  
 |-------------------------------|----------------------------------------------|  
