@@ -103,7 +103,7 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
 </p>
 
 
-### Breast Cancer Insight Analysis
+#### Breast Cancer Insight Analysis
 <p align="center">
   <img src="output/x2.png" alt="Diagram 1" width="1000">
   <br>
@@ -190,17 +190,17 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 </p>
 
 
-# Breast Cancer Patient Analytics Report  
+### Breast Cancer Patient Analytics Report  
 *Generated from Lakehouse Pipeline – {{date}}*  
 
-## 1. Key Demographics  
+#### 1. Key Demographics  
 - **Total Patients:** `{{gold_df.count()}}`  
 - **Average Age:** `{{stage_analysis_df.select(avg("avg_age")).first()[0]}}` years  
 - **Weight Distribution:**  
   - Mean: `{{stage_analysis_df.select(avg("avg_weight")).first()[0]}}` kg  
   - Std Dev: `{{stage_analysis_df.select(stddev("avg_weight")).first()[0]}}` kg  
 
-## 2. Stage Distribution  
+#### 2. Stage Distribution  
 
 | Stage | Patients (%) | Avg Age | Top Location |  
 |-------|-------------|---------|--------------|  
@@ -210,22 +210,22 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 
 **Insight:** Early-stage (1-2) diagnoses are most prevalent in `{{top_location}}`.  
 
-## 3. Temporal Trends  
+#### 3. Temporal Trends  
 ![Diagnosis Over Time]  
 - **Peak Diagnoses:** `{{year_with_max_cases}}`  
 - **Recent Change:** `{{last_3_years_trend}}` (↑/↓)  
 
-## 4. AI-Generated Prevention Insights  
+#### 4. AI-Generated Prevention Insights  
 **For Stage {{X}} Patients (Age {{Y}}):**  
 > "Patients at this stage should prioritize {{GPT-4_advice}}..."
 
-## 5. Data Quality Notes  
+#### 5. Data Quality Notes  
 - **Complete Records:** `{{valid_records/total*100}}`%  
 - **Missing Data:**  
   - `{{null_cancer_stage}}` missing stage labels  
   - `{{null_weight}}` missing weight entries  
 
-## Methodology  
+### Methodology  
 - **Data Source:** `breast_cancer_patients.csv`  
 - **Pipeline:**  
   - **Bronze:** Raw ingestion  
@@ -234,7 +234,7 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 - **Tools:** Microsoft Fabric, Power BI, PySpark  
 
 
-## Key Components
+### Key Components
 
 ### Data Storage
 - **BioEventHouse**: Eventhouse and KQL Database for genomic event data  
