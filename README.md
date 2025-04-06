@@ -138,6 +138,24 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
   <em>Figure 11: MS Fabric - Backend</em>
 </p>
 
+##### For Backend service to work need to update: -
+
+			OPENAI_GPT4_DEPLOYMENT="gpt-4"
+			OPENAI_ENDPOINT="https://<your-resource>.openai.azure.com"
+			OPENAI_API_KEY="<your-key>"
+			OPENAI_ADA_DEPLOYMENT="text-embedding-ada-002"
+
+			KUSTO_URI="https://trd-zdxwqrcu1znbqygpxg.z2.kusto.fabric.microsoft.com"
+			KUSTO_DATABASE="BioEventHouse"
+			KUSTO_TABLE="biospecimen_embeddings"
+
+			AZURE_TENANT_ID="<tenant-id>"
+			AZURE_CLIENT_ID="<client-id>"
+			AZURE_CLIENT_SECRET="<client-secret>"
+
+			KUSTO_DB=BioEventHouse
+			APP_INSIGHTS_KEY=your-instrumentation-key
+			SECRET_KEY=your-secret-key-for-flask
 
 #### File Structure
 
@@ -314,24 +332,6 @@ Unique run_id and experiment IDs enable traceability across genomic analyses.
   <em>Figure 15: MS Fabric - Genomic Analysis Pipeline</em>
 </p>
 
-##### For Backend service to work need to update: -
-
-			OPENAI_GPT4_DEPLOYMENT="gpt-4"
-			OPENAI_ENDPOINT="https://<your-resource>.openai.azure.com"
-			OPENAI_API_KEY="<your-key>"
-			OPENAI_ADA_DEPLOYMENT="text-embedding-ada-002"
-
-			KUSTO_URI="https://trd-zdxwqrcu1znbqygpxg.z2.kusto.fabric.microsoft.com"
-			KUSTO_DATABASE="BioEventHouse"
-			KUSTO_TABLE="biospecimen_embeddings"
-
-			AZURE_TENANT_ID="<tenant-id>"
-			AZURE_CLIENT_ID="<client-id>"
-			AZURE_CLIENT_SECRET="<client-secret>"
-
-			KUSTO_DB=BioEventHouse
-			APP_INSIGHTS_KEY=your-instrumentation-key
-			SECRET_KEY=your-secret-key-for-flask
 
 ### Machine Learning
 - **BiospecimenClassifier**: ML model for biospecimen classification  
