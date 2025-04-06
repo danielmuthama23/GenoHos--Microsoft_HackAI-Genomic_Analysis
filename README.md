@@ -64,6 +64,13 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
   <em>Figure 1: High-level architecture of the bioscience platform</em>
 </p>
 
+#### Services
+
+	1. ML Model - Training/ Classification/ Fine-tuning
+	2. RAG System - Bioscince RAG system
+	3. Data Collector - breast_cancer_recorder
+	4. Visualizations
+
 ### Project Structure
 
 	GenomicAnalysisWorkspace/
