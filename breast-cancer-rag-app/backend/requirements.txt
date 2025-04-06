@@ -3,7 +3,6 @@ uvicorn==0.27.1
 azure-identity==1.15.0
 azure-kusto-data==4.2.0
 openai>=1.12.0  # Modern client version
-tenacity==8.2.3
 python-dotenv==1.0.1
 pydantic==2.6.4
 python-multipart==0.0.9
@@ -11,7 +10,6 @@ flask==2.3.2
 flask-cors==3.0.10
 flask-limiter==2.8.1
 openai==1.12.0  # Only modern version
-pyspark==3.4.1
 azure-monitor-opentelemetry==1.0.0
 tenacity==8.2.2
 gunicorn==20.1.0
