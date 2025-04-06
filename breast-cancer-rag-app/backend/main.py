@@ -6,11 +6,19 @@ from azure.identity import DefaultAzureCredential
 from azure.kusto.data import KustoClient, KustoConnectionStringBuilder
 from openai import AzureOpenAI
 from tenacity import retry, wait_random_exponential, stop_after_attempt
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# ========== Configuration ==========
-# Get credentials from environment variables
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Configuration
 OPENAI_GPT4_DEPLOYMENT = os.getenv("OPENAI_GPT4_DEPLOYMENT")
 OPENAI_ENDPOINT = os.getenv("OPENAI_ENDPOINT")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -20,25 +28,25 @@ KUSTO_URI = os.getenv("KUSTO_URI")
 KUSTO_DATABASE = os.getenv("KUSTO_DATABASE")
 KUSTO_TABLE = os.getenv("KUSTO_TABLE")
 
-# ========== Service Clients ==========
 # Azure Authentication
 credential = DefaultAzureCredential()
 
-# Kusto Client (Corrected Parameters)
-kcsb = KustoConnectionStringBuilder.with_aad_application_key_authentication(
-    KUSTO_URI,
-    application_client_id=os.getenv("AZURE_CLIENT_ID"),
-    application_key=os.getenv("AZURE_CLIENT_SECRET"),
-    authority_id=os.getenv("AZURE_TENANT_ID")
-)
-
-# # For older versions (<4.0)
+# # Kusto Client
 # kcsb = KustoConnectionStringBuilder.with_aad_application_key_authentication(
 #     KUSTO_URI,
-#     client_id=os.getenv("AZURE_CLIENT_ID"),      # Old parameter name
-#     client_key=os.getenv("AZURE_CLIENT_SECRET"), # Old parameter name
+#     application_client_id=os.getenv("AZURE_CLIENT_ID"),
+#     application_key=os.getenv("AZURE_CLIENT_SECRET"),
 #     authority_id=os.getenv("AZURE_TENANT_ID")
 # )
+
+# Use this universal approach that works with most versions
+kcsb = KustoConnectionStringBuilder.with_aad_application_key_authentication(
+    KUSTO_URI,
+    os.getenv("AZURE_CLIENT_ID"),
+    os.getenv("AZURE_CLIENT_SECRET"),
+    os.getenv("AZURE_TENANT_ID")
+)
+
 kusto_client = KustoClient(kcsb)
 
 # OpenAI Client
@@ -48,10 +56,8 @@ openai_client = AzureOpenAI(
     api_version="2023-09-01-preview"
 )
 
-# ========== Core Logic ==========
 @retry(wait=wait_random_exponential(min=1, max=20), stop=stop_after_attempt(6))
 def generate_embeddings(text: str) -> list:
-    """Generate embeddings using OpenAI Ada model"""
     try:
         response = openai_client.embeddings.create(
             input=[text.replace("\n", " ")],
@@ -63,7 +69,6 @@ def generate_embeddings(text: str) -> list:
         return None
 
 def execute_kusto_query(query: str) -> list:
-    """Execute Kusto query and return results"""
     try:
         response = kusto_client.execute(KUSTO_DATABASE, query)
         return [row.to_dict() for row in response.primary_results[0]]
@@ -72,26 +77,22 @@ def execute_kusto_query(query: str) -> list:
         return []
 
 def query_biospecimen_data(question: str, top_results: int = 3) -> dict:
-    """Main query processing pipeline"""
-    # Generate question embedding
     embedding = generate_embeddings(question)
     if not embedding:
         return {"answer": "Embedding generation failed", "sources": []}
 
-    # Build Kusto query
+    embedding_str = "[" + ",".join(map(str, embedding)) + "]"
     kusto_query = f"""
     {KUSTO_TABLE}
-    | extend similarity = cosine_similarity(embedding, {embedding})
+    | extend similarity = cosine_similarity(embedding, dynamic({embedding_str}))
     | top {top_results} by similarity desc
     | project content, metadata, similarity
     """
     
-    # Execute query
     results = execute_kusto_query(kusto_query)
     if not results:
         return {"answer": "No relevant records found", "sources": []}
 
-    # Prepare LLM context
     context = "\n".join([
         f"Record {idx+1} (Similarity: {row['similarity']:.2f}):\n"
         f"Content: {row['content']}\n"
@@ -99,7 +100,6 @@ def query_biospecimen_data(question: str, top_results: int = 3) -> dict:
         for idx, row in enumerate(results)
     ])
 
-    # Generate LLM response
     try:
         response = openai_client.chat.completions.create(
             model=OPENAI_GPT4_DEPLOYMENT,
@@ -121,10 +121,10 @@ def query_biospecimen_data(question: str, top_results: int = 3) -> dict:
             "content": r["content"],
             "metadata": r["metadata"],
             "similarity": round(r["similarity"], 2)
-        } for r in results]
+        } for r in results],
+        "processing_time": f"{len(results)} results analyzed"
     }
 
-# ========== API Endpoints ==========
 class QueryRequest(BaseModel):
     question: str
     top_results: int = 3
@@ -141,7 +141,6 @@ async def handle_query(request: QueryRequest):
 async def health_check():
     return {"status": "healthy", "service": "biospecimen-query"}
 
-# ========== Entry Point ==========
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
