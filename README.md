@@ -153,7 +153,6 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
 			AZURE_CLIENT_ID="<client-id>"
 			AZURE_CLIENT_SECRET="<client-secret>"
 
-			KUSTO_DB=BioEventHouse
 			APP_INSIGHTS_KEY=your-instrumentation-key
 			SECRET_KEY=your-secret-key-for-flask
 
