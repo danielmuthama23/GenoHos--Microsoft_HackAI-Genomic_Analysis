@@ -10,7 +10,7 @@ python-multipart==0.0.9
 flask==2.3.2
 flask-cors==3.0.10
 flask-limiter==2.8.1
-openai==0.28.1
+openai==1.12.0  # Only modern version
 pyspark==3.4.1
 azure-monitor-opentelemetry==1.0.0
 tenacity==8.2.2
