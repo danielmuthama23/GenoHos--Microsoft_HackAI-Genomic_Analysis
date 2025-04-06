@@ -6,7 +6,8 @@ openai==1.12.0
 tenacity==8.2.3
 python-dotenv==1.0.1
 pydantic==2.6.4
-python-multipart==0.0.9flask==2.3.2
+python-multipart==0.0.9
+flask==2.3.2
 flask-cors==3.0.10
 flask-limiter==2.8.1
 openai==0.28.1
