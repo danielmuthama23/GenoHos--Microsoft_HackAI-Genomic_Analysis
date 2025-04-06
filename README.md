@@ -126,6 +126,12 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
   <em>Figure 10: MS Fabric - Frontend</em>
 </p>
 
+<p align="center">
+  <img src="output/x11.png" alt="Diagram 5">
+  <br>
+  <em>Figure 11: MS Fabric - Backend</em>
+</p>
+
 
 #### File Structure
 
