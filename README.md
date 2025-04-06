@@ -260,6 +260,54 @@ This Medallion pipeline ingests raw breast cancer patient data (bronze), cleans/
 - Multiple Jupyter notebooks for various genomic analysis tasks  
 - Experiments tracking for machine learning workflows  
 
+The provided observations outline a genomic machine learning pipeline leveraging MLflow for model management and reproducibility. Key aspects include:
+
+#### Pipeline Structure
+
+Artifact Tracking: Model files (model.pkl), environment specifications (conda.yaml, python_env.yaml), and evaluation metrics (ROC curves, confusion matrices) are systematically logged, ensuring reproducibility.
+
+Runtime Metrics: Training metrics (accuracy, F1-score, recall) are tracked, emphasizing model performance validation for genomic data classification tasks.
+
+#### MLflow Integration
+
+The MLmodel file defines metadata for model deployment, including:
+
+**Dependencies:** Conda/virtualenv environments to replicate training conditions.
+
+**Model Specifications:** Scikit-learn flavor with input (21 features as float64) and output (int64 labels) schemas, tailored for genomic datasets.
+
+**Version Control:** Explicit library versions (sklearn 1.2.2, MLflow 2.12.2) prevent dependency conflicts.
+
+#### Workflow Efficiency
+
+Unique run_id and experiment IDs enable traceability across genomic analyses.
+
+**Implications:** This setup ensures reproducibility (via environment isolation), scalability (through MLflow’s tracking), and interpretability (via visualized metrics), addressing common challenges in genomic ML workflows. The focus on structured metadata and standardized evaluation aligns with best practices for translational bioinformatics.
+
+<p align="center">
+  <img src="output/x12.png" alt="Diagram 5">
+  <br>
+  <em>Figure 12: MS Fabric - Genomic Analysis Pipeline</em>
+</p>
+
+<p align="center">
+  <img src="output/x13.png" alt="Diagram 5">
+  <br>
+  <em>Figure 13: MS Fabric - Genomic Analysis Pipeline</em>
+</p>
+
+<p align="center">
+  <img src="output/x14.png" alt="Diagram 5">
+  <br>
+  <em>Figure 14: MS Fabric - Genomic Analysis Pipeline</em>
+</p>
+
+<p align="center">
+  <img src="output/x15.png" alt="Diagram 5">
+  <br>
+  <em>Figure 15: MS Fabric - Genomic Analysis Pipeline</em>
+</p>
+
 ### Machine Learning
 - **BiospecimenClassifier**: ML model for biospecimen classification  
 - Model deployment experiments  
