@@ -34,6 +34,12 @@ Low-Code Transformations to clean and standardize omics data without extensive c
 
 Built-In ML Capabilities for running predictive models directly on Fabric notebooks
 
+#### Members/Contributors
+	 1. Daniel Muthama
+	 2. Eunice Nduku
+	 3. Daniel Muruthi
+
+
 ### Overview
 
 This AI-powered oncology platform analyzes integrated genomic, proteomic, and metabolomic data to predict disease outcomes and generate personalized treatment recommendations. The system utilizes Microsoft Fabric for multimodal data orchestration, Azure AI Search for biomedical evidence retrieval, and Azure OpenAI for clinical insights generation. Specifically designed for breast cancer research, it identifies pathogenic mutation patterns, detects clinically significant genomic variants, and synthesizes comprehensive reports highlighting therapeutic implications derived from multi-omics analysis."
