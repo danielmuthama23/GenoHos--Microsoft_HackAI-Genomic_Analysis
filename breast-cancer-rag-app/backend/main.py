@@ -24,11 +24,19 @@ KUSTO_TABLE = os.getenv("KUSTO_TABLE")
 # Azure Authentication
 credential = DefaultAzureCredential()
 
-# Kusto Client (Corrected Parameters)
+# # Kusto Client (Corrected Parameters)
+# kcsb = KustoConnectionStringBuilder.with_aad_application_key_authentication(
+#     KUSTO_URI,
+#     application_client_id=os.getenv("AZURE_CLIENT_ID"),
+#     application_key=os.getenv("AZURE_CLIENT_SECRET"),
+#     authority_id=os.getenv("AZURE_TENANT_ID")
+# )
+
+# For older versions (<4.0)
 kcsb = KustoConnectionStringBuilder.with_aad_application_key_authentication(
     KUSTO_URI,
-    application_client_id=os.getenv("AZURE_CLIENT_ID"),
-    application_key=os.getenv("AZURE_CLIENT_SECRET"),
+    client_id=os.getenv("AZURE_CLIENT_ID"),      # Old parameter name
+    client_key=os.getenv("AZURE_CLIENT_SECRET"), # Old parameter name
     authority_id=os.getenv("AZURE_TENANT_ID")
 )
 kusto_client = KustoClient(kcsb)
