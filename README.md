@@ -42,7 +42,7 @@ Built-In ML Capabilities for running predictive models directly on Fabric notebo
 
 ### Overview
 
-This AI-powered oncology platform analyzes integrated genomic, proteomic, and metabolomic data to predict disease outcomes and generate personalized treatment recommendations. The system utilizes Microsoft Fabric for multimodal data orchestration, Azure AI Search for biomedical evidence retrieval, and Azure OpenAI for clinical insights generation. Specifically designed for breast cancer research, it identifies pathogenic mutation patterns, detects clinically significant genomic variants, and synthesizes comprehensive reports highlighting therapeutic implications derived from multi-omics analysis."
+This AI-powered oncology platform analyzes integrated genomic, proteomic, and metabolomic data to predict disease outcomes and generate personalized treatment recommendations. The system utilizes Microsoft Fabric for multimodal data orchestration, Azure AI Search for biomedical evidence retrieval, and Azure OpenAI for clinical insights generation. Specifically designed for breast cancer research, it identifies pathogenic mutation patterns, detects clinically significant genomic variants, and synthesizes comprehensive reports highlighting therapeutic implications derived from multi-omics analysis.
 
 #### Key improvements:
 
@@ -132,6 +132,36 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
 
 ##### Downloaded File: "breast_cancer_patients.csv"
 
+#### File Structure
+
+breast-cancer-rag-app/
+├── backend/
+│   ├── __pycache__/          # Python cached bytecode
+│   ├── venv/                 # Python virtual environment
+│   ├── .env                  # Environment variables
+│   ├── biospecimen_rag.py    # Core RAG implementation
+│   ├── Dockerfile            # Backend container configuration
+│   ├── main.py               # FastAPI entry point
+│   └── requirements.txt      # Python dependencies
+│
+└── frontend/
+    ├── node_modules/         # NPM packages
+    ├── public/               # Static assets
+    ├── src/
+    │   ├── components/
+    │   │   ├── QueryInterface.js  # Main query component
+    │   │   ├── ResultsViewer.js   # Results display
+    │   │   └── StatusIndicator.js # System status UI
+    │   ├── services/
+    │   │   └── apiService.js      # API communication
+    │   ├── App.js           # Root React component
+    │   ├── index.js         # React entry point
+    │   ├── reportWebVitals.js # Performance tracking
+    │   ├── styles.css       # Global styles
+    │   └── .gitignore       # Frontend ignore rules
+    ├── Dockerfile           # Frontend container config
+    ├── package-lock.json    # Exact dependency tree
+    └── package.json         # Project metadata (implied)
 
 <p align="center">
   <img src="output/x10.png" alt="Diagram 5">
@@ -329,7 +359,7 @@ Unique run_id and experiment IDs enable traceability across genomic analyses.
 <p align="center">
   <img src="output/x14.png" alt="Diagram 5">
   <br>
-  <em>Figure 14: MS Fabric - Genomic Analysis Pipeline</em>
+  <em>Figure 14: MS Fabric - Genomic Analysi.s Pipeline</em>
 </p>
 
 <p align="center">
