@@ -328,6 +328,19 @@ Artifact Tracking: Model files (model.pkl), environment specifications (conda.ya
 
 Runtime Metrics: Training metrics (accuracy, F1-score, recall) are tracked, emphasizing model performance validation for genomic data classification tasks.
 
+<p align="center">
+  <img src="output/x16.png" alt="Diagram 5">
+  <br>
+  <em>Figure 16: MS Fabric - GenomicAnalysisWorkspace</em>
+</p>
+
+<p align="center">
+  <img src="output/x17.png" alt="Diagram 5">
+  <br>
+  <em>Figure 17: MS Fabric - GenomicAnalysisWorkspace</em>
+</p>
+
+
 #### MLflow Integration
 
 The MLmodel file defines metadata for model deployment, including:
