@@ -134,34 +134,34 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
 
 #### File Structure
 
-breast-cancer-rag-app/
-├── backend/
-│   ├── __pycache__/          # Python cached bytecode
-│   ├── venv/                 # Python virtual environment
-│   ├── .env                  # Environment variables
-│   ├── biospecimen_rag.py    # Core RAG implementation
-│   ├── Dockerfile            # Backend container configuration
-│   ├── main.py               # FastAPI entry point
-│   └── requirements.txt      # Python dependencies
-│
-└── frontend/
-    ├── node_modules/         # NPM packages
-    ├── public/               # Static assets
-    ├── src/
-    │   ├── components/
-    │   │   ├── QueryInterface.js  # Main query component
-    │   │   ├── ResultsViewer.js   # Results display
-    │   │   └── StatusIndicator.js # System status UI
-    │   ├── services/
-    │   │   └── apiService.js      # API communication
-    │   ├── App.js           # Root React component
-    │   ├── index.js         # React entry point
-    │   ├── reportWebVitals.js # Performance tracking
-    │   ├── styles.css       # Global styles
-    │   └── .gitignore       # Frontend ignore rules
-    ├── Dockerfile           # Frontend container config
-    ├── package-lock.json    # Exact dependency tree
-    └── package.json         # Project metadata (implied)
+	breast-cancer-rag-app/
+	├── backend/
+	│   ├── __pycache__/          # Python cached bytecode
+	│   ├── venv/                 # Python virtual environment
+	│   ├── .env                  # Environment variables
+	│   ├── biospecimen_rag.py    # Core RAG implementation
+	│   ├── Dockerfile            # Backend container configuration
+	│   ├── main.py               # FastAPI entry point
+	│   └── requirements.txt      # Python dependencies
+	│
+	└── frontend/
+	    ├── node_modules/         # NPM packages
+	    ├── public/               # Static assets
+	    ├── src/
+	    │   ├── components/
+	    │   │   ├── QueryInterface.js  # Main query component
+	    │   │   ├── ResultsViewer.js   # Results display
+	    │   │   └── StatusIndicator.js # System status UI
+	    │   ├── services/
+	    │   │   └── apiService.js      # API communication
+	    │   ├── App.js           # Root React component
+	    │   ├── index.js         # React entry point
+	    │   ├── reportWebVitals.js # Performance tracking
+	    │   ├── styles.css       # Global styles
+	    │   └── .gitignore       # Frontend ignore rules
+	    ├── Dockerfile           # Frontend container config
+	    ├── package-lock.json    # Exact dependency tree
+	    └── package.json         # Project metadata (implied)
 
 <p align="center">
   <img src="output/x10.png" alt="Diagram 5">
