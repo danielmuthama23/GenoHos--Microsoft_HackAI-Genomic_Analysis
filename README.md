@@ -35,9 +35,9 @@ Low-Code Transformations to clean and standardize omics data without extensive c
 Built-In ML Capabilities for running predictive models directly on Fabric notebooks
 
 #### Members/Contributors
-	 1. Daniel Muthama
-	 2. Eunice Nduku
-	 3. Daniel Muruthi
+	 1. Daniel Muthama (ML and Backend)
+	 2. Eunice Nduku (Data)
+	 3. Daniel Muruthi (Frontend)
 
 
 ### Overview
