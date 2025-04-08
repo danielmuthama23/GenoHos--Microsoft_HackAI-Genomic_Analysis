@@ -176,9 +176,9 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
 </p>
 
 <p align="center">
-  <img src="output/x11.png" alt="Diagram 5">
+  <img src="output/x18.png" alt="Diagram 5">
   <br>
-  <em>Figure 11: MS Fabric - Frontend for a Backend(service working)</em>
+  <em>Figure 18: MS Fabric - Frontend for a Backend(service working)</em>
 </p>
 
 ##### For Backend service to work need to update: -
