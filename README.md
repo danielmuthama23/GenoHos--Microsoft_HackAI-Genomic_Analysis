@@ -477,6 +477,13 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ---
 
+<p align="center">
+  <img src="output/mutation_disease_counts" alt="Diagram 5">
+  <br>
+  <em>Figure 19: MS Fabric - Mutation</em>
+</p>
+
+
 #### 2.2 Protein Interaction Network  
 
 ![Protein Network]
@@ -494,6 +501,12 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 
 ---
 
+<p align="center">
+  <img src="output/protein_network" alt="Diagram 5">
+  <br>
+  <em>Figure 21: MS Fabric - Mutation</em>
+</p>
+
 #### 2.3 Metabolic Pathway Dysregulation  
 
 ![Metabolic Pathways]  
@@ -509,6 +522,12 @@ This report summarizes findings from genomic data analysis, focusing on detectin
 - **Acetyl-CoA** (2.1-fold change, linked to PTEN mutations).  
 
 ---
+
+<p align="center">
+  <img src="output/metabolic_pathways" alt="Diagram 5">
+  <br>
+  <em>Figure 20: MS Fabric - Metabolic Pathway</em>
+</p>
 
 ### 3. Disease Detection Methodology  
 
