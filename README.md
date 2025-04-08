@@ -175,6 +175,12 @@ Precision in Terminology: Changed "disease recovery" to "disease outcomes" (more
   <em>Figure 11: MS Fabric - Backend</em>
 </p>
 
+<p align="center">
+  <img src="output/x11.png" alt="Diagram 5">
+  <br>
+  <em>Figure 11: MS Fabric - Frontend for a Backend(service working)</em>
+</p>
+
 ##### For Backend service to work need to update: -
 
 			OPENAI_GPT4_DEPLOYMENT="gpt-4"
